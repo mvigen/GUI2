@@ -38,7 +38,7 @@ namespace GUUI2.Controllers
             return View(Bookings);
         }
 
-        public IActionResult Create()
+        public IActionResult CheckIn()
         {
             return View();
         }
@@ -56,16 +56,16 @@ namespace GUUI2.Controllers
             return View(checkins);
         }
 
-        public async Task<IActionResult> Submit([Bind("roomno,NoAdults,noKids")] CheckIn checkIns)
+        public async Task<IActionResult> Submit([Bind("roomno,NoAdults,noKids")] Booking Bookings)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(checkIns);
+                _context.Add(Bookings);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(checkIns);
+            return View(Bookings);
         }
     }
 }

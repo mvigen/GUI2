@@ -4,8 +4,8 @@
     ViewData["Title"] = "Check Ind";
 }
 
-<h1>Restaurant</h1>
 
+<h1 class="display-4">Restaurant</h1>
 <body>
     <div class="text-center">
         <p> <b>Her kan du checke gæster ind til morgenmaden</b> </p>
@@ -44,7 +44,9 @@
                             @Html.DisplayFor(modelItem => item.Boern)
                         </td>
                         <td>
-                            <input type="submit" value="Check ind">
+                            <div class="form-group">
+                                <input type="submit" value="Check Ind" class="btn btn-primary" />
+                            </div>
                         </td>
                     </tr>
                 }

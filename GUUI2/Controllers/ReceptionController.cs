@@ -21,10 +21,10 @@ namespace GUUI2.Controllers
         }
 
         // GET: Bookings
-        //public async Task<IActionResult> Index()
-        //{
-        //    return View(await _context.Booking.ToListAsync());
-        //}
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.CheckIn.ToListAsync());
+        }
 
         public IActionResult Booking()
         {
@@ -44,11 +44,6 @@ namespace GUUI2.Controllers
             return View(booking);
         }
 
-        private bool BookingsExists(int id)
-        {
-            return _context.Booking.Any(e => e.ID == id);
-        }
-
         public async Task<IActionResult> Reception()
         {
             var checkIns = await _context.CheckIn.Where(x => x.Dato.Day == DateTime.Today.Day).ToListAsync();
@@ -56,16 +51,16 @@ namespace GUUI2.Controllers
             return View(checkIns);
         }
 
-        public async Task<IActionResult> Index(DateTime date)
-        {
-            if (date.Year == 1)
-            {
-                date = DateTime.Today;
-            }
+        //public async Task<IActionResult> Index(DateTime date)
+        //{
+        //    if (date.Year == 1)
+        //    {
+        //        date = DateTime.Today;
+        //    }
 
-            var checkedIn = (await _context.CheckIn.ToListAsync()).Where(x => x.Dato.Day == date.Day);
-            return View(checkedIn);
-        }
+        //    var checkedIn = (await _context.CheckIn.ToListAsync()).Where(x => x.Dato.Day == date.Day);
+        //    return View(checkedIn);
+        //}
 
         public async Task<IActionResult> submit([Bind("noAdults,noKids,date,roomno")] Booking booking)
         {
