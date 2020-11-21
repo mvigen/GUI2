@@ -30,15 +30,15 @@ namespace GUUI2
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("Kok", policy => policy.RequireClaim("EmployeeNumber"));
-                options.AddPolicy("Tjener", policy => policy.RequireClaim("EmployeeNumber"));
-                options.AddPolicy("Receptionist", policy => policy.RequireClaim("EmployeeNumber"));
+                options.AddPolicy("Koekken", policy => policy.RequireClaim("Koekken"));
+                options.AddPolicy("Restaurant", policy => policy.RequireClaim("Restaurant"));
+                options.AddPolicy("Reception", policy => policy.RequireClaim("Reception"));
             });
         }
 

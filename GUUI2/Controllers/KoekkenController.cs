@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GUUI2.Controllers
 {
-    [Authorize(Policy = "Receptionist")]
-    public class Receptionist : Controller
+    [Authorize(Policy = "Koekken")]
+    public class KoekkenController : Controller
     {
         public IActionResult Index()
         {

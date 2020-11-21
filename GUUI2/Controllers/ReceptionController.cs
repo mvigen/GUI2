@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GUUI2.Controllers
 {
-    [Authorize(Policy = "Kok")]
-    public class Kok : Controller
+    [Authorize(Policy = "Reception")]
+    public class ReceptionController : Controller
     {
         public IActionResult Index()
         {

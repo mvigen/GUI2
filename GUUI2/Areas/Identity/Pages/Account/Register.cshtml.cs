@@ -66,8 +66,7 @@ namespace GUUI2.Areas.Identity.Pages.Account
             [Display(Name = "Username")]
             public string Name { get; set; }
 
-            [Required]
-            [Display(Name = "Medarbejder")]
+            [Display(Name = "Medarbejder rolle:")]
             public string Role { get; set; }
         }
 
@@ -83,12 +82,28 @@ namespace GUUI2.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Name, Email = Input.Email };
+                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email};
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
-                    var nameClaim = new Claim("UserName", Input.Name);
+                    Input.Role = Request.Form["rolle"];
+                    var nameClaim = new Claim("FullName", Input.Name);
                     await _userManager.AddClaimAsync(user, nameClaim);
+                    if (Input.Role == "Kok" || Input.Role == "kok")
+                    {
+                        var koekkenClaim = new Claim("Koekken", Input.Role);
+                        await _userManager.AddClaimAsync(user, koekkenClaim);
+                    }
+                    else if (Input.Role == "Tjener" || Input.Role == "tjener")
+                    {
+                        var restaurantClaim = new Claim("Restaurant", Input.Role);
+                        await _userManager.AddClaimAsync(user, restaurantClaim);
+                    }
+                    else if (Input.Role == "Receptionist" || Input.Role == "receptionist")
+                    {
+                        var receptionClaim = new Claim("Reception", Input.Role);
+                        await _userManager.AddClaimAsync(user, receptionClaim);
+                    }
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation("User created a new account with password.");
 

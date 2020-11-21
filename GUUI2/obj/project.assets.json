@@ -8846,11 +8846,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mathi\\source\\repos\\GUUI2\\GUUI2\\GUUI2.csproj",
+      "projectUniqueName": "C:\\Users\\mathi\\Documents\\GitHub\\GUI2\\GUUI2\\GUUI2.csproj",
       "projectName": "GUUI2",
-      "projectPath": "C:\\Users\\mathi\\source\\repos\\GUUI2\\GUUI2\\GUUI2.csproj",
+      "projectPath": "C:\\Users\\mathi\\Documents\\GitHub\\GUI2\\GUUI2\\GUUI2.csproj",
       "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mathi\\source\\repos\\GUUI2\\GUUI2\\obj\\",
+      "outputPath": "C:\\Users\\mathi\\Documents\\GitHub\\GUI2\\GUUI2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
