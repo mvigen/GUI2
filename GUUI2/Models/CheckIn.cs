@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GUUI2.Models
 {
-    public class Booking
+    public class CheckIn
     {
         [Key]
         public int ID { get; set; }

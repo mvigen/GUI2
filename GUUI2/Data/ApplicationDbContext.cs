@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using GUUI2.Models;
 
 namespace GUUI2.Data
 {
@@ -12,5 +13,8 @@ namespace GUUI2.Data
             : base(options)
         {
         }
+
+        public DbSet<Booking> Booking { get; set; }
+        public DbSet<CheckIn> CheckIn { get; set; }
     }
 }

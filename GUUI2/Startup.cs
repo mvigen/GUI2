@@ -12,6 +12,7 @@ using GUUI2.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace GUUI2
 {
@@ -43,7 +44,7 @@ namespace GUUI2
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<IdentityUser> userManager, ApplicationDbContext context, ILogger<Startup> log)
         {
             if (env.IsDevelopment())
             {
@@ -63,6 +64,8 @@ namespace GUUI2
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            DbHelper.SeedData(context, userManager, log);
 
             app.UseEndpoints(endpoints =>
             {

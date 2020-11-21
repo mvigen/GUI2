@@ -1,8 +1,54 @@
-﻿@{
-    ViewData["Title"] = "Restaurant";
+﻿@model IEnumerable<GUUI2.Models.Booking>
+
+@{
+    ViewData["Title"] = "Check Ind";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Restaurant</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Restaurant</h1>
+
+<body>
+    <div class="text-center">
+        <p> <b>Her kan du checke gæster ind til morgenmaden</b> </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Dato)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.VaerelsesNr)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Voksne)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Boern)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Dato)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VaerelsesNr)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Voksne)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Boern)
+                        </td>
+                        <td>
+                            <input type="submit" value="Check ind">
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>

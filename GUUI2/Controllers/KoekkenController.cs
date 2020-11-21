@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GUUI2.Controllers
 {
-    [Authorize(Policy = "Koekken")]
+    //[Authorize(Policy = "Koekken")]
     public class KoekkenController : Controller
     {
         public IActionResult Index()

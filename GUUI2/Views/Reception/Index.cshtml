@@ -1,8 +1,51 @@
-﻿@{
+﻿@model IEnumerable<GUUI2.Models.CheckIn>
+
+@{
     ViewData["Title"] = "Reception";
 }
 
 <div class="text-center">
     <h1 class="display-4">Reception</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Her kan du booke gæster til morgenmad:</p>
+    <div class="form-group">
+        <a asp-controller="Reception" asp-action="Booking" class="btn btn-primary">Opret Booking</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dato)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VaerelsesNr)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Voksne)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Boern)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dato)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VaerelsesNr)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Voksne)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Boern)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

@@ -1,34 +1,32 @@
 ﻿@model GUUI2.Models.Booking
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Booking";
 }
 
-<h1>Create</h1>
-
-<h4>Bookings</h4>
+<h1>Opret Booking</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Date" class="control-label"></label>
-                <input asp-for="Date" class="form-control" />
-                <span asp-validation-for="Date" class="text-danger"></span>
+                <label asp-for="Dato" class="control-label">Dato</label>
+                <input asp-for="Dato" class="form-control" />
+                <span asp-validation-for="Dato" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="VaerelsesNr" class="control-label"></label>
+                <label asp-for="VaerelsesNr" class="control-label">Værelsesnummer</label>
                 <input asp-for="VaerelsesNr" class="form-control" />
                 <span asp-validation-for="VaerelsesNr" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Voksne" class="control-label"></label>
+                <label asp-for="Voksne" class="control-label">Antal voksne</label>
                 <input asp-for="Voksne" class="form-control" />
                 <span asp-validation-for="Voksne" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Boern" class="control-label"></label>
+                <label asp-for="Boern" class="control-label">Antal Børn</label>
                 <input asp-for="Boern" class="form-control" />
                 <span asp-validation-for="Boern" class="text-danger"></span>
             </div>
