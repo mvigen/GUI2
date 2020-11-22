@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GUUI2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201121223702_InitialCreate")]
+    [Migration("20201122020124_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

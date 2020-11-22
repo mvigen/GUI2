@@ -20,8 +20,13 @@ namespace GUUI2.Controllers
         }
 
 
-        public ActionResult Kitchen(DateTime givenDate)
+        public ActionResult Index(DateTime givenDate)
         {
+            if (givenDate.Year == 1)
+            {
+                givenDate = DateTime.Today;
+            }
+
             var viewModel = new BookingCheckIn
             {
                 CheckIns = _context.CheckIn.ToList(),
@@ -30,7 +35,8 @@ namespace GUUI2.Controllers
 
             viewModel.Date = givenDate;
 
-
+            int tempCheked = 0;
+            int tempBooked = 0;
             viewModel.CheckIns = viewModel.CheckIns.Where
                 (i => i.Dato.Day == givenDate.Day).ToList();
             viewModel.CheckedInVoksne = 0;
@@ -40,7 +46,7 @@ namespace GUUI2.Controllers
             {
                 viewModel.CheckedInVoksne += guest.Voksne;
                 viewModel.CheckedInBoern += guest.Boern;
-                viewModel.TotalCheckedIn = guest.Boern + guest.Voksne;
+                viewModel.TotalCheckedIn = viewModel.CheckedInBoern + viewModel.CheckedInVoksne;
             }
 
             viewModel.Bookings = viewModel.Bookings.Where
@@ -52,9 +58,11 @@ namespace GUUI2.Controllers
             {
                 viewModel.BookedVoksne += guest.Voksne;
                 viewModel.BookedBoern += guest.Boern;
-                viewModel.TotalBookings = guest.Boern + guest.Voksne;
+                viewModel.TotalBookings = viewModel.BookedBoern + viewModel.BookedVoksne;
             }
-
+            viewModel.BookedVoksne -= viewModel.CheckedInVoksne;
+            viewModel.BookedBoern -= viewModel.CheckedInBoern;
+            viewModel.TotalBookings -= viewModel.TotalCheckedIn;
             return View(viewModel);
         }
     }

@@ -1,8 +1,65 @@
-﻿@{
+﻿@model BookingCheckIn
+
+@{
     ViewData["Title"] = "Køkken";
 }
 
 <div class="text-center">
     <h1 class="display-4">Køkken</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>Her kan du se hvor mange gæster der er checket ind, samt hvor mange der er booked</p>
+    <form method="get" asp-controller="Koekken" asp-action="Index">
+        <label for="givenDate">Vis information for denne dato:</label>
+        <input type="date" id="givenDate" name="givenDate" value="@Model.Date.ToString("s")">
+        <div class="form-group" style="padding-top: 10px;">
+            <input type="submit" value="Opdater information" class="btn btn-primary">
+        </div>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" id="group">Aldersgruppe</th>
+                <th scope="col" id="Booked">Booket</th>
+                <th scope="col" id="checkedIn">Checket ind</th>
+                <th scope="col" id="total">Forventede gæster</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td scope="row" headers="group">Voksne</td>
+                <td>
+                    @Model.BookedVoksne
+                </td>
+                <td>
+                    @Model.CheckedInVoksne
+                </td>
+                <td>
+                    @(Model.BookedVoksne + Model.CheckedInVoksne)
+                </td>
+            </tr>
+            <tr>
+                <td scope="row" headers="group">Børn</td>
+                <td>
+                    @Model.BookedBoern
+                </td>
+                <td>
+                    @Model.CheckedInBoern
+                </td>
+                <td>
+                    @(Model.BookedBoern + Model.CheckedInBoern)
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" headers="group">Total</th>
+                <td>
+                    @Model.TotalBookings
+                </td>
+                <td>
+                    @Model.TotalCheckedIn
+                </td>
+                <td>
+                    @(Model.TotalBookings + Model.TotalCheckedIn)
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
