@@ -4,25 +4,28 @@
     ViewData["Title"] = "Check Ind";
 }
 
-
-<h1 class="display-4">Restaurant</h1>
 <body>
     <div class="text-center">
-        <p> <b>Her kan du checke gæster ind til morgenmaden</b> </p>
+        <h1 class="display-4">Restaurant</h1>
+        <p>Her kan du checke gæster ind til morgenmaden</p>
+        <div class="form-group">
+            <a asp-controller="Restaurant" asp-action="CheckIn" class="btn btn-primary">Check ind</a>
+        </div>
+        <p>Her ser du de værelser som har bestilt morgenmad:</p>
         <table class="table">
             <thead>
                 <tr>
                     <th>
-                        @Html.DisplayNameFor(model => model.Dato)
+                        <p>Dato</p>
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.VaerelsesNr)
+                        <p>Værelsesnummer</p>
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Voksne)
+                        <p>Antal Voksne</p>
                     </th>
                     <th>
-                        @Html.DisplayNameFor(model => model.Boern)
+                        <p>Antal børn</p>
                     </th>
                     <th></th>
                 </tr>
@@ -42,11 +45,6 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Boern)
-                        </td>
-                        <td>
-                            <div class="form-group">
-                                <input type="submit" value="Check Ind" class="btn btn-primary" />
-                            </div>
                         </td>
                     </tr>
                 }

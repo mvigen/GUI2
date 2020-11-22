@@ -62,7 +62,7 @@ namespace GUUI2.Controllers
         //    return View(checkedIn);
         //}
 
-        public async Task<IActionResult> submit([Bind("noAdults,noKids,date,roomno")] Booking booking)
+        public async Task<IActionResult> Submit([Bind("noAdults,noKids,date,roomno")] Booking booking)
         {
             if (ModelState.IsValid)
             {

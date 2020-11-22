@@ -1,0 +1,47 @@
+﻿@model GUUI2.Models.CheckIn
+
+
+@{
+    ViewData["Title"] = "Check Ind";
+}
+
+<h1>Check gæst ind</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CheckIn">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Dato" class="control-label">Dato</label>
+                <input asp-for="Dato" class="form-control" />
+                <span asp-validation-for="Dato" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VaerelsesNr" class="control-label">Værelsesnummer</label>
+                <input asp-for="VaerelsesNr" class="form-control" />
+                <span asp-validation-for="VaerelsesNr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Voksne" class="control-label">Antal voksne</label>
+                <input asp-for="Voksne" class="form-control" />
+                <span asp-validation-for="Voksne" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Boern" class="control-label">Antal Børn</label>
+                <input asp-for="Boern" class="form-control" />
+                <span asp-validation-for="Boern" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Check Ind" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Tilbage til liste</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

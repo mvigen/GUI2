@@ -10,20 +10,21 @@
     <div class="form-group">
         <a asp-controller="Reception" asp-action="Booking" class="btn btn-primary">Opret Booking</a>
     </div>
+    <p>Her kan du se dem der har checket ind til morgenmad:</p>
     <table class="table">
         <thead>
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.Dato)
+                    <p>Dato</p>
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.VaerelsesNr)
+                    <p>Værelsesnummer</p>
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Voksne)
+                    <p>Antal Voksne</p>
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Boern)
+                    <p>Antal børn</p>
                 </th>
                 <th></th>
             </tr>

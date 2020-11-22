@@ -380,3 +380,4 @@ C:\Users\mathi\Documents\GitHub\GUI2\GUUI2\obj\Debug\netcoreapp3.1\Razor\Views\R
 C:\Users\mathi\Documents\GitHub\GUI2\GUUI2\obj\Debug\netcoreapp3.1\Razor\Views\Restaurant\Index.cshtml.g.cs
 C:\Users\mathi\Documents\GitHub\GUI2\GUUI2\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\Account\RegisterConfirmation.cshtml.g.cs
 C:\Users\mathi\Documents\GitHub\GUI2\GUUI2\obj\Debug\netcoreapp3.1\Razor\Views\Reception\Booking.cshtml.g.cs
+C:\Users\mathi\Documents\GitHub\GUI2\GUUI2\obj\Debug\netcoreapp3.1\Razor\Views\Restaurant\CheckIn.cshtml.g.cs

@@ -43,29 +43,45 @@ namespace GUUI2.Controllers
             return View();
         }
 
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Submit([Bind("roomno,NoAdults,noKids")] CheckIn checkIns)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _context.Add(checkIns);
+        //        await _context.SaveChangesAsync();
+        //        return RedirectToAction(nameof(Index));
+        //    }
+
+        //    return View(checkIns);
+        //}
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Dato,VaerelsesNr,Voksne,Boern")] CheckIn checkins)
+        public async Task<IActionResult> Submit([Bind("roomno,NoAdults,noKids")] CheckIn checkIns)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(checkins);
+                _context.Add(checkIns);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(checkins);
+            return View(checkIns);
         }
 
-        public async Task<IActionResult> Submit([Bind("roomno,NoAdults,noKids")] Booking Bookings)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CheckIn([Bind("ID,Dato,VaerelsesNr,Voksne,Boern")] CheckIn CheckIns)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(Bookings);
+                _context.Add(CheckIns);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-
-            return View(Bookings);
+            return View(CheckIns);
         }
+
     }
 }
