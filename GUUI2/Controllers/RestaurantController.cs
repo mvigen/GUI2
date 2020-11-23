@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GUUI2.Controllers
 {
-    //[Authorize(Policy ="Restaurant")]
+    [Authorize(Policy ="Restaurant")]
     public class RestaurantController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -19,12 +19,6 @@ namespace GUUI2.Controllers
         {
             _context = context;
         }
-        //public async Task<IActionResult> Index()
-        //{
-        //    var Bookings = await _context.Booking.Where(x => x.Dato.Day == DateTime.Today.Day).ToListAsync();
-
-        //    return View(Bookings);
-        //}
 
         public async Task<IActionResult> Index()
         {
@@ -42,20 +36,6 @@ namespace GUUI2.Controllers
         {
             return View();
         }
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Submit([Bind("roomno,NoAdults,noKids")] CheckIn checkIns)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.Add(checkIns);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-
-        //    return View(checkIns);
-        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]

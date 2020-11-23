@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace GUUI2.Controllers
 {
-    //[Authorize(Policy = "Reception")]
+    [Authorize(Policy = "Reception")]
     public class ReceptionController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -50,17 +50,6 @@ namespace GUUI2.Controllers
 
             return View(checkIns);
         }
-
-        //public async Task<IActionResult> Index(DateTime date)
-        //{
-        //    if (date.Year == 1)
-        //    {
-        //        date = DateTime.Today;
-        //    }
-
-        //    var checkedIn = (await _context.CheckIn.ToListAsync()).Where(x => x.Dato.Day == date.Day);
-        //    return View(checkedIn);
-        //}
 
         public async Task<IActionResult> Submit([Bind("noAdults,noKids,date,roomno")] Booking booking)
         {

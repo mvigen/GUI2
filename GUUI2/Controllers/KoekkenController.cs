@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GUUI2.Controllers
 {
-    //[Authorize(Policy = "Koekken")]
+    [Authorize(Policy = "Koekken")]
     public class KoekkenController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -35,8 +35,6 @@ namespace GUUI2.Controllers
 
             viewModel.Date = givenDate;
 
-            int tempCheked = 0;
-            int tempBooked = 0;
             viewModel.CheckIns = viewModel.CheckIns.Where
                 (i => i.Dato.Day == givenDate.Day).ToList();
             viewModel.CheckedInVoksne = 0;
